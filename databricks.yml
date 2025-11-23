@@ -34,13 +34,18 @@ targets:
         default : "citibike_stage"
       dev_flag:
         default: false
+    presets:
+        name_prefix: '[staging] '
     workspace:
       host: https://adb-3231700265906051.11.azuredatabricks.net
       # We explicitly deploy to /Workspace/Users/froths.vistas-6j_icloud.com#ext#@frothsvistas6jicloud.onmicrosoft.com to make sure we only have a single copy.
-      root_path: /Workspace/Shared/froths.vistas-6j_icloud.com#ext#@frothsvistas6jicloud.onmicrosoft.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - user_name: froths.vistas-6j_icloud.com#ext#@frothsvistas6jicloud.onmicrosoft.com
+      - service_principal_name: 72e6451a-5b2a-4661-9f40-4e8fd16eeb27
         level: CAN_MANAGE
+    run_as:
+      service_principal_name: 72e6451a-5b2a-4661-9f40-4e8fd16eeb27
+      
   prod:
     mode: production
     variables:
@@ -48,10 +53,14 @@ targets:
         default : "citibike_prod"
       dev_flag:
         default: false
+    presets:
+        name_prefix: '[prod] '
     workspace:
       host: https://adb-83108819158553.13.azuredatabricks.net
       # We explicitly deploy to /Workspace/Users/froths.vistas-6j_icloud.com#ext#@frothsvistas6jicloud.onmicrosoft.com to make sure we only have a single copy.
-      root_path: /Workspace/Shared/froths.vistas-6j_icloud.com#ext#@frothsvistas6jicloud.onmicrosoft.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - user_name: froths.vistas-6j_icloud.com#ext#@frothsvistas6jicloud.onmicrosoft.com
+      - service_principal_name: 42c2f8a4-6cf5-411d-b3ac-5b4e213b8d9a
         level: CAN_MANAGE
+    run_as:
+      service_principal_name: 42c2f8a4-6cf5-411d-b3ac-5b4e213b8d9a
