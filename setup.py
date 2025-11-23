@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dab_project",
-    version="0.0.2",
+    version="0.0.3",
     description="This contains the code in the ./sec directory of the project",
     author="Ankur Chaudhary",
     packages=find_packages(where="./src"),
